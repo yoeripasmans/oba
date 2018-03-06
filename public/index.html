@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Popular buildings</title>
+	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js"></script>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css" rel="stylesheet" />
+	<link rel="stylesheet" href="bundle.css">
+</head>
+
+<body>
+	<header>
+		<h1>Top 50 popular buildings Amsterdam</h1>
+	</header>
+	<main>
+		<section id="detail">
+			<h3 data-bind="name"></h3>
+			<ul>
+				<li><img data-bind="img" src="/" alt=""></li>
+			</ul>
+			<a href="#home">Close</a>
+		</section>
+		<section id="map"></section>
+	</main>
+
+	<script type="text/javascript" src="bundle.js">
+	</script>
+</body>
+
+</html>
