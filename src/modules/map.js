@@ -41,13 +41,27 @@ const map = {
 			el.style.backgroundColor = "hsl" + this.circleColor(d);
 
 
-			el.addEventListener("mouseover", function() {
-				console.log(d.buildingLabel.value);
+			const popup = new mapboxgl.Popup({
+				closeButton: false,
+				closeOnClick: false
 			});
+
+			el.addEventListener("mouseover", function() {
+				popup.setLngLat(d.projected)
+					.setHTML(d.buildingLabel.value)
+					.addTo(map);
+			});
+
+			el.addEventListener("mouseout", function() {
+				map.getCanvas().style.cursor = '';
+				popup.remove();
+			});
+
 
 			// make a marker for each feature and add to the map
 			new mapboxgl.Marker(el)
 				.setLngLat(d.projected)
+				.setPopup(popup)
 				.addTo(map);
 		});
 

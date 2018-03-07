@@ -4,7 +4,7 @@ import transparency from './vendor/transparency.min.js';
 const render = {
 
 	detail: function(data) {
-		var directives = {
+		const directives = {
 			img: {
 				src: function(params) {
 					return this.img.value;
