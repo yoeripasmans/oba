@@ -1,3 +1,132 @@
+@import url(https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css);/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:after, blockquote:before {
+  content: '';
+  content: none; }
+
+q:after, q:before {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 * {
   box-sizing: border-box; }
 
@@ -9,17 +138,28 @@ html {
 body {
   font-family: sans-serif; }
 
-h1 {
+header {
   position: absolute;
-  color: #fff;
-  z-index: 3;
-  transform: translate(-50%, 0);
-  left: 50%; }
+  top: 0;
+  height: 4em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9; }
+  header h1 {
+    font-size: 1.7em;
+    font-weight: 600;
+    color: #fff; }
 
 .marker {
   background-color: red;
   border-radius: 50%;
   cursor: pointer; }
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; }
 
 #detail.show {
   display: block; }
@@ -27,16 +167,21 @@ h1 {
 #map {
   height: 100vh;
   width: 100vw;
-  position: absolute;
-  top: 0;
-  bottom: 0; }
+  position: fixed; }
 
 #detail {
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 66;
   display: none; }
+  #detail ul {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
   #detail a {
     position: fixed;
     right: 2em;

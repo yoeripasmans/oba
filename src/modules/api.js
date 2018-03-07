@@ -4,6 +4,8 @@ import render from './render.js';
 const api = {
 
 	getBuildings: function() {
+		//Check if the data already exsist in the local storage
+		if (localStorage.getItem("buildings") === null) {
 
 		const sparqlQuery = `
 
@@ -33,9 +35,8 @@ const api = {
 			.then(response => response.json()) // transform the data into json
 			.then(data => {
 
-				let results = data.results.bindings; // get the results
-				console.log(results);
-
+				const results = data.results.bindings; // get the results
+				localStorage.setItem("buildings", JSON.stringify(results));
 				map.init(results);
 
 			})
@@ -43,6 +44,9 @@ const api = {
 				// if there is any error you will catch them here
 				console.log(error);
 			});
+		} else {
+			map.init(JSON.parse(localStorage.getItem('buildings')));
+		}
 	},
 	getBuildingDetail: function(name) {
 		const sparqlQuery = `
@@ -53,7 +57,7 @@ const api = {
 		PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 		PREFIX void: <http://rdfs.org/ns/void#>
 
-		SELECT ?cho ?building ?img ?col  WHERE {
+		SELECT DISTINCT ?cho ?building ?img ?col  WHERE {
 
 		 ?cho dct:spatial ?b .
 		 ?b a hg:Building .
@@ -65,7 +69,7 @@ const api = {
 		 FILTER REGEX(?building,"${name}")
 		}
 
-		LIMIT 150
+		LIMIT 20
 
 		`;
 		//Encode the query
@@ -79,7 +83,7 @@ const api = {
 			.then(data => {
 
 				let results = data.results.bindings; // get the results
-			
+
 				console.log(results);
 				render.detail(results);
 
