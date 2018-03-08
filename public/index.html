@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 	<meta charset="UTF-8">
@@ -11,18 +11,41 @@
 
 <body>
 	<header>
-		<h1>Top 50 popular buildings Amsterdam</h1>
+		<h1>Top 50 gebouwen in Amsterdam</h1>
+		<p>Op deze kaart ziet u een overzicht van de vijftig populairste gebouwen die Amsterdam te bieden heeft. Daarbij geven de cirkels aan om hoeveel afbeeldingen het gaat. Klik op een cirkel om meer informatie over het gebouw te krijgen. </p>
 	</header>
 	<main>
+
 		<section id="detail">
-			<h3 data-bind="name"></h3>
-			<ul>
-				<li><img data-bind="img" src="/" alt=""></li>
-			</ul>
-			<a href="#home">Close</a>
+			<div class="detail-wrapper">
+				<header>
+					<h3 data-bind="name"></h3>
+					<p data-bind="date">1988 - 2018</p>
+				</header>
+				<section>
+
+				</section>
+				<ul>
+					<li><img data-bind="img" src="/" alt=""></li>
+				</ul>
+				<a href="#home">
+				<svg viewport="0 0 12 12" version="1.1"
+				     xmlns="http://www.w3.org/2000/svg">
+				    <line x1="1" y1="11"
+				          x2="11" y2="1"
+				          stroke="black"
+				          stroke-width="2"/>
+				    <line x1="1" y1="1"
+				          x2="11" y2="11"
+				          stroke="black"
+				          stroke-width="2"/></svg>
+				</a>
+			</div>
 		</section>
-		<section id="map"></section>
+		<div id="map"></div>
 	</main>
+	<div class="loader"></div>
+	<div class="error"></div>
 
 	<script type="text/javascript" src="bundle.js">
 	</script>

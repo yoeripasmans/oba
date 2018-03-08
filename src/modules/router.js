@@ -14,7 +14,6 @@ const router = {
 				sections.toggle('map');
 			},
 			'buildings/:name': (name) => {
-				sections.toggle('detail');
 				api.getBuildingDetail(name);
 			}
 		});
