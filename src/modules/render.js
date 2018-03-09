@@ -16,7 +16,7 @@ const render = {
 			},
 			count: {
 				text: function(params) {
-					return "In totaal " + this.count.value + " Afbeeldingen gevonden";
+					return this.count.value + " Afbeeldingen gevonden";
 				}
 			}
 

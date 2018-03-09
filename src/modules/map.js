@@ -19,7 +19,7 @@ const map = {
 
 		const map = new mapboxgl.Map({
 			container: 'map',
-			style: 'mapbox://styles/mapbox/dark-v9',
+			style: 'mapbox://styles/yoerweli/cjejq0mr0b9v72rp2ywvhnif4',
 			center: [4.899431, 52.368189],
 			zoom: 12.5,
 			minZoom: 12.5,
@@ -59,6 +59,13 @@ const map = {
 					el.style.backgroundColor = "hsl" + helpers.circleColor(d);
 					el.style.opacity = 0;
 
+					if(d.count.value > 500) {
+					el.style.zIndex = 1;
+					}
+					if(d.count.value > 250) {
+					el.style.zIndex = 1;
+					}
+
 					animation.fadeIn(el);
 
 					//Adds tooltip
@@ -66,6 +73,7 @@ const map = {
 						closeButton: false,
 						closeOnClick: false
 					});
+
 
 					el.addEventListener("mouseover", function() {
 						popup.setLngLat(d.projected)

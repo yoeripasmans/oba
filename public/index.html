@@ -17,7 +17,7 @@
 		</p>
 		<div class="header-controls">
 			<i class="fa fa-chevron-down" aria-hidden="true"></i>
-			<i class="fa fa-chevron-up chevronHide" aria-hidden="true"></i>
+			<i class="fa fa-chevron-up" aria-hidden="true"></i>
 		</div>
 	</header>
 	<main>
@@ -40,10 +40,15 @@
 				<header>
 					<h2 data-bind="name"></h2>
 					<p data-bind="date">Foto's van 1988 t/m 2018</p>
-
+					<p class="desc">Station Amsterdam Centraal is het centraal station van de Nederlandse hoofdstad Amsterdam. Het is gebouwd tussen 1881 en 1889 naar ontwerp van P.J.H. Cuypers, A.L. van Gendt (stationsgebouw) en L.J. Eijmer (stationskap). Het station telt zes perrons
+						die via drie dwarsgangen onder de 15 sporen (waarvan 11 perronsporen) bereikbaar zijn. Dagelijks telt Amsterdam Centraal circa 160.000 in- en uitstappers, waarmee het na Station Utrecht Centraal het drukste station van Nederland is.[1] Reizigers
+						kunnen gebruikmaken van treinen, metro's, trams, bussen en veren. Het station is gelegen op het aangeplempte Stationseiland in het IJ.</p>
 					<div class="detail-controls">
 						<h5 data-bind="count">Totaal 500 afbeeldingen gevonden</h5>
-						<div class="sort-button">Sorteren op jaar</div>
+						<div class="sort-button">Sorteer op jaar
+							<i class="fa fa-chevron-down sort-fa-chevron-down show" aria-hidden="true"></i>
+							<i class="fa fa-chevron-up sort-fa-chevron-up" aria-hidden="true"></i></div>
+						<input class="search" type="search" name="search" placeholder="Zoeken op datum..">
 					</div>
 				</header>
 
@@ -61,7 +66,20 @@
 
 		<section id="map"></section>
 	</main>
-	<div class="loader"></div>
+	<div class="loader">
+		<div class="sk-circle1 sk-circle"></div>
+		<div class="sk-circle2 sk-circle"></div>
+		<div class="sk-circle3 sk-circle"></div>
+		<div class="sk-circle4 sk-circle"></div>
+		<div class="sk-circle5 sk-circle"></div>
+		<div class="sk-circle6 sk-circle"></div>
+		<div class="sk-circle7 sk-circle"></div>
+		<div class="sk-circle8 sk-circle"></div>
+		<div class="sk-circle9 sk-circle"></div>
+		<div class="sk-circle10 sk-circle"></div>
+		<div class="sk-circle11 sk-circle"></div>
+		<div class="sk-circle12 sk-circle"></div>
+	</div>
 	<div class="error">
 		<h3>Deze pagina kan niet worden geladen.</h3>
 	</div>

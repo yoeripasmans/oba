@@ -4,6 +4,7 @@ import loader from './loader.js';
 import error from './error.js';
 import helpers from './helpers.js';
 import sort from './sort.js';
+import filter from './filter.js';
 import gallery from './gallery.js';
 
 const api = {
@@ -60,7 +61,7 @@ const api = {
 		}
 	},
 	getBuildingDetail: function(name) {
-
+		loader.show();
 		const data = JSON.parse(localStorage.getItem('buildings'));
 
 		//Get the object with the name of name of the parameter and save it in variable
@@ -123,8 +124,10 @@ const api = {
 				const imgData = data.results.bindings;
 
 				sort.getInput(imgData);
+				filter.getInput(imgData);
 				render.detail(dataDetail);
 				render.images(imgData);
+				loader.hide();
 
 			})
 			.catch(error => {

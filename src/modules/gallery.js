@@ -18,12 +18,13 @@ const gallery = {
 
 		imagesLoaded(grid).on('progress', function() {
 			// layout Masonry after each image loads
+			// loader.show();
 			msnry.layout();
 
 		});
 		imagesLoaded(grid).on('done', function() {
 			// layout Masonry after each image loads
-
+			// loader.hide();
 
 		});
 
