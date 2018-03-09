@@ -1,6 +1,9 @@
 @import "partials/reset";
 @import url("https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css");
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Rozha+One');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700');
 
 * {
 	box-sizing: border-box;
@@ -13,30 +16,67 @@ html {
 }
 
 body {
-	font-family: sans-serif;
+	font-family: 'Titillium Web';
 }
 
 body > header {
 	position: absolute;
 	top: 2em;
 	left: 2em;
-	padding: 1.4em;
-	max-width: 27em;
+	padding: 1.7em;
+	max-width: 32em;
+	height: 16em;
+	overflow: hidden;
 	background-color: rgba(0,0,0,0.7);
 	z-index: 9;
+	transition: all 300ms;
 
 	h1 {
-		font-size: 2.3em;
+		font-size: 2.25em;
 		font-family: 'Rozha One';
 		line-height: 1.2;
 		color: #fff;
 	}
 
-	p {
+	.intro {
 		color: #fff;
 		line-height: 1.4;
-		opacity: 0.8;
-		margin-top: 0.2em;
+		opacity: 0;
+		margin-top: 0.5em;
+
+		&.show {
+			opacity: 0.8;
+		}
+	}
+
+	&.hidden {
+		height: 9.6em;
+	}
+
+	.header-controls {
+		width: 100%;
+		display: flex;
+		height: 2em;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		i {
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.fa-chevron-down,
+		.fa-chevron-up {
+			display: none;
+		}
+
+		.fa-chevron-down.show,
+		.fa-chevron-up.show {
+			display: block;
+		}
 	}
 }
 
@@ -51,37 +91,6 @@ body > header {
 	padding: 10px;
 }
 
-.loader {
-	display: none;
-	position: fixed;
-	left: 50%;
-	top: 45%;
-	transform: translate(-50%, -50%);
-	border: 10px solid #fff;
-	border-top: 10px solid #E63946;
-	border-radius: 50%;
-	width: 80px;
-	height: 80px;
-	animation: spin 0.6s linear infinite;
-}
-
-.loader.show {
-	display: block;
-}
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-#detail.show {
-	display: block;
-}
-
 #map {
 	height: 100vh;
 	width: 100vw;
@@ -91,25 +100,29 @@ body > header {
 #detail {
 	position: absolute;
 	width: 100%;
-	background-color: rgba(0,0,0,0.8);
+	min-height: 100vh;
+	background-color: rgba(0,0,0,0.9);
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 66;
 	display: none;
+
+	&.show {
+		display: block;
+	}
 }
 
 .detail-wrapper {
-	max-width: 58em;
+	max-width: 70em;
 	margin: 2em auto;
-	padding: 4em;
+	padding: 0 1em;
 	position: relative;
 
 	header {
-		margin-bottom: 2em;
-
-		h3 {
-			font-size: 1.8em;
+		h2 {
+			font-size: 2.5em;
+			font-family: 'Rozha One';
 			text-align: center;
 			font-weight: 700;
 			color: #fff;
@@ -122,30 +135,161 @@ body > header {
 			margin-top: 0.3em;
 		}
 	}
-
-	ul {
-		line-height: 0;
-		column-count: 5;
-		column-gap: 0;
-
-		li {
-			img {
-				width: 100%;
-				height: auto;
-			}
+	/* ---- .grid-item ---- */
+	.grid-item,
+	.grid-sizer {
+		width: calc(20% - 4px);
+		margin-bottom: 5px;
+		float: left;
+	}
+	@media(max-width: 1068px) {
+		.grid-item,
+		.grid-sizer {
+			width: calc(33.333% - 4px);
+		}
+	}
+	@media(max-width: 768px) {
+		.grid-item,
+		.grid-sizer {
+			width: calc(50% - 4px);
+		}
+	}
+	@media(max-width: 500px) {
+		.grid-item,
+		.grid-sizer {
+			width: calc(100% - 4px);
+			margin-bottom: 1em;
 		}
 	}
 
-	a {
+	.grid-item {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.grid-item img {
+		display: block;
+		max-width: 100%;
+		cursor: pointer;
+		transition: all 0.3s;
+	}
+
+	.grid-item:hover img {
+		transform: scale(1.1);
+	}
+
+	.back-button {
+		position: fixed;
+		left: 2em;
+		top: 2em;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		cursor: pointer;
+
+		svg {
+			height: 12px;
+			width: 12px;
+			transform: scale(1.7);
+			margin-right: 0.8em;
+		}
+
+		svg path {
+			fill: #fff;
+		}
+	}
+
+	.back-button:hover {
+		text-decoration: underline;
+	}
+}
+
+.preview {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 199;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.9);
+
+	&.show {
+		display: flex;
+	}
+
+	.close-button {
 		position: fixed;
 		right: 2em;
 		top: 2em;
 		height: 12px;
 		width: 12px;
 		transform: scale(2);
+		cursor: pointer;
 
 		svg line {
 			stroke: #fff;
 		}
+	}
+}
+
+.detail-controls {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	color: #fff;
+	display: flex;
+
+	.sort-button {
+		margin-left: auto;
+	}
+}
+
+.error {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+
+	h3 {
+		font-size: 1.5em;
+		font-weight: 600;
+	}
+
+	&.show {
+		display: flex;
+	}
+}
+
+.loader {
+	display: none;
+	position: fixed;
+	left: 50%;
+	top: 45%;
+	transform: translate(-50%, -50%);
+	border: 10px solid #fff;
+	border-top: 10px solid #E63946;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	animation: spin 0.6s linear infinite;
+	z-index: 99;
+
+	&.show {
+		display: block;
+	}
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
 	}
 }

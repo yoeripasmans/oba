@@ -1,7 +1,10 @@
 import map from './map.js';
 import render from './render.js';
 import loader from './loader.js';
+import error from './error.js';
 import helpers from './helpers.js';
+import sort from './sort.js';
+import gallery from './gallery.js';
 
 const api = {
 
@@ -48,6 +51,8 @@ const api = {
 				})
 				.catch(error => {
 					// if there is any error you will catch them here
+					error.show();
+					loader.hide();
 					console.log(error);
 				});
 		} else {
@@ -59,15 +64,7 @@ const api = {
 		const data = JSON.parse(localStorage.getItem('buildings'));
 
 		//Get the object with the name of name of the parameter and save it in variable
-		const dataDetail = data.filter(d => {
-			if (helpers.getSegment(d.building.value, 3) == name) {
-				return true;
-			} else {
-				return false;
-			}
-		});
-
-		console.log(dataDetail);
+		const dataDetail = data.find(d => helpers.getSegment(d.building.value, 3) == name);
 
 		const sparqlQuery = `
 
@@ -89,10 +86,10 @@ const api = {
 		 ?cho foaf:depiction ?img .
 		 ?cho sem:hasBeginTimeStamp ?date .
 
-		 FILTER REGEX(?building,"${dataDetail[0].buildingLabel.value}")
+		 FILTER REGEX(?building,"${dataDetail.buildingLabel.value}")
 		}
 		ORDER BY ?date
-		LIMIT 100
+		LIMIT 200
 
 		`;
 
@@ -123,21 +120,18 @@ const api = {
 			.then(response => response.json()) // transform the data into json
 			.then(data => {
 
-				const images = data.results;
-				const results = Object.assign(dataDetail[0], images);
+				const imgData = data.results.bindings;
 
-				//Format the data
-				delete results.distinct;
-				delete results.ordered;
-				results.images = results.bindings;
-				delete results.bindings;
-
-				render.detail(results);
+				sort.getInput(imgData);
+				render.detail(dataDetail);
+				render.images(imgData);
 
 			})
 			.catch(error => {
 				// if there is any error you will catch them here
 				console.log(error);
+				error.show();
+				loader.hide();
 			});
 
 	}

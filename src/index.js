@@ -1,7 +1,7 @@
 require('./assets/scss/index.scss');
 import api from './modules/api.js';
 import router from './modules/router.js';
-import map from './modules/map.js';
+import toggle from './modules/toggle.js';
 
 (function() {
 
@@ -9,6 +9,7 @@ import map from './modules/map.js';
 		//Starts app with initialize the router and gets the data
 		init: function() {
 			router.init();
+			toggle.init();
 			api.getBuildings();
 		}
 	};

@@ -3,6 +3,7 @@ import sections from './sections.js';
 import helpers from './helpers.js';
 import api from './api.js';
 import loader from './loader.js';
+import error from './error.js';
 import animation from './animation.js';
 
 const map = {
@@ -87,6 +88,11 @@ const map = {
 				// turn off sourcedata listener if its no longer needed
 				map.off('load');
 			}
+		});
+
+		map.on("error", e => {
+			error.show();
+			loader.hide();
 		});
 
 	},

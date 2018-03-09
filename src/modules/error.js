@@ -1,6 +1,6 @@
-const loader = {
-	 element: document.querySelector('.loader'),
-	 show: function(el){
+const error = {
+	 element: document.querySelector('.error'),
+	 show: function(){
 		 this.element.classList.add("show");
 	 },
 	 hide: function(el){
@@ -9,4 +9,4 @@ const loader = {
 
 };
 
-export default loader;
+export default error;

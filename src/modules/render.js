@@ -1,28 +1,46 @@
 import sections from './sections';
+import gallery from './gallery';
+import preview from './preview';
 import transparency from './vendor/transparency.min.js';
+
 
 const render = {
 
 	detail: function(data) {
 		const directives = {
-			img: {
-				src: function(params) {
-					return this.img.value;
+
+			name: {
+				text: function(params) {
+					return this.buildingLabel.value;
 				}
 			},
-			name: {
-				text: function(params)  {
-					return this.value;
+			count: {
+				text: function(params) {
+					return "In totaal " + this.count.value + " Afbeeldingen gevonden";
 				}
 			}
 
 		};
 		//Render detail section
-		Transparency.render(document.querySelector('#detail header'), data.buildingLabel, directives);
+		Transparency.render(document.querySelector('#detail header'), data, directives);
 		//Toggle detail screen
 		sections.toggle('detail');
-		//Render picture section
-		Transparency.render(document.querySelector('#detail ul'), data.images, directives);
+
+	},
+	images: function(data) {
+		const directives = {
+			img: {
+				src: function(params) {
+					return this.img.value;
+				},
+
+			},
+
+
+		};
+		Transparency.render(document.querySelector('.grid'), data, directives);
+		gallery.init();
+		preview.init();
 	},
 
 };
