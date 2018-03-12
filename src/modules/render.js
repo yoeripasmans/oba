@@ -36,7 +36,6 @@ const render = {
 
 			},
 
-
 		};
 		Transparency.render(document.querySelector('.grid'), data, directives);
 		gallery.init();
