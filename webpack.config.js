@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
 	entry: "./src/index.js",
@@ -61,13 +62,24 @@ module.exports = {
 			filename: 'bundle.css',
 			allChunks: true,
 		}),
-  ],
 
-  // Automatically reload the page when compilation is done.
-  devServer: {
-    port: 3000,
-    compress: true,
-    contentBase: 'public/',
-  },
+		new webpack.optimize.UglifyJsPlugin({
+			minimize: true,
+			comments: false,
+			compress: {
+				unused: true,
+				dead_code: true,
+				warnings: false,
+				screw_ie8: true
+			}
+		}),
+	],
+
+	// Automatically reload the page when compilation is done.
+	devServer: {
+		port: 3000,
+		compress: true,
+		contentBase: 'public/',
+	},
 
 };
