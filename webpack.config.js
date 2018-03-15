@@ -62,10 +62,10 @@ module.exports = {
 			filename: 'bundle.css',
 			allChunks: true,
 		}),
-
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
 			comments: false,
+			sourceMap: true,
 			compress: {
 				unused: true,
 				dead_code: true,
