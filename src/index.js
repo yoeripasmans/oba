@@ -11,7 +11,7 @@ import toggle from './modules/toggle.js';
 			router.init();
 			toggle.init();
 			api.getBuildings();
-		}
+		},
 	};
 	//Start app
 	app.init();

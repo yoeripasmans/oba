@@ -33,7 +33,6 @@ const render = {
 		if(data.length > 50) {
 			data.length = 50;
 		}
-		console.log(data);
 
 		const directives = {
 			img: {

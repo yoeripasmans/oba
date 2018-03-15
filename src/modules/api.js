@@ -48,7 +48,7 @@ const api = {
 					localStorage.setItem("buildings", JSON.stringify(results));
 					//initialize the map with the data results
 					map.init(results);
-
+					return results;
 				})
 				.catch(error => {
 					// if there is any error you will catch them here
@@ -62,8 +62,12 @@ const api = {
 	},
 	getBuildingDetail: function(name) {
 		loader.show();
-		const data = JSON.parse(localStorage.getItem('buildings'));
-
+		let data;
+		if (localStorage.getItem("buildings") === null) {
+			error.show();
+		} else {
+			data = JSON.parse(localStorage.getItem('buildings'));
+		}
 		//Get the object with the name of name of the parameter and save it in variable
 		const dataDetail = data.find(d => helpers.getSegment(d.building.value, 3) == name);
 
@@ -136,7 +140,8 @@ const api = {
 				loader.hide();
 			});
 
-	}
+	},
+
 };
 
 export default api;
