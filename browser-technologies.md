@@ -18,9 +18,10 @@ Het probleem wat ik gelijk ondervond is dat als er geen javascript aanwezig is e
 Qua kleur heb ik geen problemen ondervonden. Het enige is dat ik een lichte opacity op de cirkels heb ingesteld om verschil tussen deze elementen te kunnen inzien.
 
 ### 5. Breedband internet
-De performance heb ik verbeterd door het optimalizeren en minifien van de css en javascript files. Doordat de bestandgrootte van deze files kleiner werd kan de site sneller geladen worden.
+De performance heb ik verbeterd door het optimalizeren en minifien van de css en javascript files. Doordat de bestandgrootte van deze files kleiner werd kan de site sneller geladen worden. Ook worden de statische bestanden gecached zodat ze niet nog een keer door de browser gedownload hoeven worden.
 
 ### 6. Cookies
+
 
 ### 7. Local storage
 Ik werkte eerst alleen met local storage om data op te slaan. Als dit het niet deed werkte de app niet meer. Ik heb daarom een if else om de functie van het data ophalen heen gezet die checkt of de data al in localStorage bevindt. Als dit zo is haalt hij daar de data uit, maar als dit niet zo is (ook als localStorage niet werkt) haalt hij de data op en slaat dit op in een Javascript object.
@@ -31,3 +32,7 @@ De applicatie was eerst alleen te gebruiken met muis/trackpad, omdat de elemnten
 ## Accessibility issues
 
 Voor de cirkels op mijn kaart waren geen links en hadden daarom niet via tab genavigeert worden. Dit heb ik veranderd waardoor de gebruiker nu door de verschillende gebouwen heen kan navigeren met tab. Dit verbeterd de Accessibility van de applicatie. Daarnaast had ik nog geen focus styles toegevoegd.
+
+## To do
+
+Als ik meer tijd zou hebben dan zou ik de problemen met het gebruik van een offline map oplossen. Zodat de gebruiker alsnog de applicatie zonder netwerk/javascript kan gebruiken. Ook zou ik het probleem met navigeren tussen afbeeldingen verbeteren zodat je de applicatie volledig met je toetstenbord kan bedienen.
