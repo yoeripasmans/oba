@@ -3,8 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Popular buildings of Amsterdam</title>
 	<link rel="stylesheet" href="bundle.css">
 </head>
@@ -45,7 +44,7 @@
 				Terug naar kaart
 				</a>
 				<header>
-					<h2 data-bind="name"></h2>
+					<h2 data-bind="name">Naam</h2>
 					<p data-bind="date">Foto's van 1988 t/m 2018</p>
 					<!-- <p class="desc">Station Amsterdam Centraal is het centraal station van de Nederlandse hoofdstad Amsterdam. Het is gebouwd tussen 1881 en 1889 naar ontwerp van P.J.H. Cuypers, A.L. van Gendt (stationsgebouw) en L.J. Eijmer (stationskap). Het station telt zes perrons
 						die via drie dwarsgangen onder de 15 sporen (waarvan 11 perronsporen) bereikbaar zijn. Dagelijks telt Amsterdam Centraal circa 160.000 in- en uitstappers, waarmee het na Station Utrecht Centraal het drukste station van Nederland is.[1] Reizigers
@@ -63,13 +62,14 @@
 				<div class="grid">
 					<div class="grid-sizer"></div>
 					<a data-bind="link" href="#" class="grid-item">
-						<img data-bind="img" class="gallery-img" src="/" alt="Image of a building in Amsterdam">
+						<img data-bind="img" class="gallery-img" src="//:0" alt="Image of a building in Amsterdam">
 					</a>
 				</div>
 			</div>
 		</section>
 
 	</main>
+
 	<div class="loader">
 		<div class="sk-circle1 sk-circle"></div>
 		<div class="sk-circle2 sk-circle"></div>
@@ -84,6 +84,7 @@
 		<div class="sk-circle11 sk-circle"></div>
 		<div class="sk-circle12 sk-circle"></div>
 	</div>
+
 	<div class="error">
 		<h3>Deze pagina kan niet worden geladen.</h3>
 	</div>

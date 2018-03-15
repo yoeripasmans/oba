@@ -55,7 +55,7 @@ module.exports = {
 			},
 		]
 	},
-	devtool: 'inline-source-map',
+
 	plugins: [
 		new ExtractTextPlugin({
 			filename: 'bundle.css',
@@ -64,7 +64,7 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
 			comments: false,
-			sourceMap: true,
+			sourceMap: false,
 			compress: {
 				unused: true,
 				dead_code: true,

@@ -227,6 +227,7 @@ body > header {
 		align-items: center;
 		text-decoration: none;
 		cursor: pointer;
+		z-index: 99;
 
 		svg {
 			height: 12px;

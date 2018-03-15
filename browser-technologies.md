@@ -7,7 +7,7 @@ Ik kwam erachter dat ik teveel afbeeldingen inlaadde, hierdoor werd de app een s
 
 2. Custom fonts
 
-Met met custom fonts heb ik bij mijn OBA app ondervonden dat ik niet genoeg fallback fonts had. Daarnaast gebruikte ik voor iconen FontAwesome dit is een font wat aanvoelt als een hack. Dit heb ik dus ook omgezet naar normale SVG's en meer fallback fonts toegevoegd.
+Met met custom fonts heb ik bij mijn OBA applicatie ondervonden dat ik niet genoeg fallback fonts had. Daarnaast gebruikte ik voor iconen FontAwesome dit is een font wat aanvoelt als een hack. Dit heb ik dus ook omgezet naar normale SVG's en meer fallback fonts toegevoegd.
 
 3. Javascript(Volledig)
 
