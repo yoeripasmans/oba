@@ -62,7 +62,6 @@ module.exports = {
 			filename: 'bundle.css',
 			allChunks: true,
 		}),
-
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
 			comments: false,
@@ -71,7 +70,7 @@ module.exports = {
 				unused: true,
 				dead_code: true,
 				warnings: false,
-				screw_ie8: true
+				screw_ie8: true,
 			}
 		}),
 	],
