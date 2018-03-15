@@ -66,6 +66,7 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
 			comments: false,
+			sourceMap: true,
 			compress: {
 				unused: true,
 				dead_code: true,
