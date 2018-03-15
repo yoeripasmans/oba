@@ -18,6 +18,7 @@ Het probleem wat ik gelijk ondervond is dat als er geen javascript aanwezig is e
 Qua kleur heb ik geen problemen ondervonden. Het enige is dat ik een lichte opacity op de cirkels heb ingesteld om verschil tussen deze elementen te kunnen inzien.
 
 5. Breedband internet
+De performance heb ik verbeterd door het optimalizeren en minifien van de css en javascript files.
 
 6. Cookies
 
