@@ -23,7 +23,6 @@ const sort = {
 	},
 
 	onYear: function(data) {
-		console.log('sorteer');
 		const sortedData = data.sort(function(b, a) {
 			var keyA = new Date(a.date.value),
 				keyB = new Date(b.date.value);
@@ -36,7 +35,6 @@ const sort = {
 		render.images(sortedData);
 	},
 	reset: function(data) {
-		console.log('reset');
 		const sortedData = data.sort(function(a, b) {
 			var keyA = new Date(a.date.value),
 				keyB = new Date(b.date.value);

@@ -74,6 +74,16 @@ const map = {
 						closeOnClick: false
 					});
 
+					el.addEventListener("focus", function() {
+						popup.setLngLat(d.projected)
+							.setHTML(d.buildingLabel.value)
+							.addTo(map);
+					});
+
+					el.addEventListener("focusout", function() {
+						popup.remove();
+					});
+
 
 					el.addEventListener("mouseover", function() {
 						popup.setLngLat(d.projected)

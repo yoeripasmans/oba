@@ -90,7 +90,6 @@ const api = {
 		 FILTER REGEX(?building,"${dataDetail.buildingLabel.value}")
 		}
 		ORDER BY ?date
-		LIMIT 200
 
 		`;
 

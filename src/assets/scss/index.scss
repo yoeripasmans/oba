@@ -16,7 +16,7 @@ html {
 }
 
 body {
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Titillium Web', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body > header {
@@ -41,7 +41,6 @@ body > header {
 	.intro {
 		color: #fff;
 		line-height: 1.4;
-		opacity: 0;
 		margin-top: 0.5em;
 
 		&.show {
@@ -205,6 +204,11 @@ body > header {
 	.grid-item {
 		position: relative;
 		overflow: hidden;
+
+		&:focus img,
+		&:hover img {
+			transform: scale(1.1);
+		}
 	}
 
 	.grid-item img {
@@ -212,10 +216,6 @@ body > header {
 		max-width: 100%;
 		cursor: pointer;
 		transition: all 0.3s;
-	}
-
-	.grid-item:hover img {
-		transform: scale(1.1);
 	}
 
 	.back-button {
@@ -238,10 +238,11 @@ body > header {
 		svg path {
 			fill: #fff;
 		}
-	}
 
-	.back-button:hover {
-		text-decoration: underline;
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -263,7 +264,7 @@ body > header {
 		position: fixed;
 		right: 2em;
 		top: 2em;
-		height: 12px;
+		height: 16px;
 		width: 12px;
 		transform: scale(2);
 		cursor: pointer;
@@ -272,6 +273,17 @@ body > header {
 			stroke: #fff;
 		}
 	}
+}
+
+button {
+	background: none;
+	border: 0;
+	color: inherit;
+	/* cursor: default; */
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
 }
 
 .detail-controls {
@@ -300,8 +312,10 @@ body > header {
 			}
 		}
 
+		&:focus,
 		&:hover {
 			text-decoration: underline;
+			outline: none;
 		}
 	}
 

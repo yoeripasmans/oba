@@ -1,6 +1,7 @@
 import sections from './sections';
 import gallery from './gallery';
 import preview from './preview';
+import helpers from './helpers';
 import transparency from './vendor/transparency.min.js';
 
 
@@ -28,10 +29,22 @@ const render = {
 
 	},
 	images: function(data) {
+
+		if(data.length > 50) {
+			data.length = 50;
+		}
+		console.log(data);
+
 		const directives = {
 			img: {
 				src: function(params) {
 					return this.img.value;
+				},
+
+			},
+			link: {
+				href: function(params) {
+					return window.location.hash + "/images/" + params.index;
 				},
 
 			},

@@ -1,5 +1,6 @@
 import api from './api.js';
 import sections from './sections.js';
+import tabs from './tabs.js';
 import routie from './vendor/routie.js';
 
 const router = {
@@ -12,10 +13,12 @@ const router = {
 			},
 			'home': () => {
 				sections.toggle('map');
+				tabs.active();
 			},
 			'buildings/:name': (name) => {
 				api.getBuildingDetail(name);
-			}
+				tabs.disabled();
+			},
 		});
 	},
 
