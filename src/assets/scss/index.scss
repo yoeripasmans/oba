@@ -73,6 +73,7 @@ body > header {
 		.fa-chevron-up {
 			display: none;
 			color: #fff;
+			cursor: pointer;
 		}
 
 		.fa-chevron-down.show,
@@ -324,6 +325,7 @@ button {
 
 	.search {
 		width: 16em;
+		height: 2.7em;
 		border: none;
 		margin-left: 2em;
 		padding: 0.6em;
