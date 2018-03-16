@@ -7,7 +7,7 @@ Ik kwam erachter dat ik teveel afbeeldingen inlaadde, hierdoor werd de app een s
 
 ### 2. Custom fonts
 
-Met met custom fonts heb ik bij mijn OBA applicatie ondervonden dat ik niet genoeg fallback fonts had. Daarnaast gebruikte ik voor iconen FontAwesome dit is een font wat aanvoelt als een hack. Dit heb ik dus ook omgezet naar normale SVG's en meer fallback fonts toegevoegd.
+Met met custom fonts heb ik bij mijn OBA applicatie ondervonden dat ik niet genoeg fallback fonts had. Daarnaast gebruikte ik voor iconen FontAwesome dit is een font wat aanvoelt als een hack. Deze wil dus ook omzetten naar normale SVG's en meer fallback fonts toegevoegd.
 
 ### 3. Javascript(Volledig)
 
@@ -15,13 +15,13 @@ Het probleem wat ik gelijk ondervond is dat als er geen javascript aanwezig is e
 
 ### 4. Kleur
 
-Qua kleur heb ik geen problemen ondervonden. Het enige is dat ik een lichte opacity op de cirkels heb ingesteld om verschil tussen deze elementen te kunnen inzien.
+Qua kleur heb ik geen problemen ondervonden. Contrasten waren in orde. Het enige wat ik verandert heb is een lichte opacity op de cirkels om het verschil tussen de elementen beter te kunnen inzien.
 
 ### 5. Breedband internet
-De performance heb ik verbeterd door het optimalizeren en minifien van de css en javascript files. Doordat de bestandgrootte van deze files kleiner werd kan de site sneller geladen worden. Ook worden de statische bestanden gecached zodat ze niet nog een keer door de browser gedownload hoeven worden.
+De performance heb ik verbeterd door het optimalizeren en minifien van de css en javascript files. Doordat de bestandgrootte van deze files kleiner werd kan de site sneller geladen worden. Ook wil ik de statische bestanden cachen zodat ze niet nog een keer door de browser gedownload hoeven worden.
 
 ### 6. Cookies
-
+Voor mijn applicatie heb ik nog geen gebruik gemaakt van cookies. Deze hoefde dus ook niet geoptimaliseerd te worden.
 
 ### 7. Local storage
 Ik werkte eerst alleen met local storage om data op te slaan. Als dit het niet deed werkte de app niet meer. Ik heb daarom een if else om de functie van het data ophalen heen gezet die checkt of de data al in localStorage bevindt. Als dit zo is haalt hij daar de data uit, maar als dit niet zo is (ook als localStorage niet werkt) haalt hij de data op en slaat dit op in een Javascript object.
@@ -31,7 +31,7 @@ De applicatie was eerst alleen te gebruiken met muis/trackpad, omdat de elemnten
 
 ## Accessibility issues
 
-Voor de cirkels op mijn kaart waren geen links en hadden daarom niet via tab genavigeert worden. Dit heb ik veranderd waardoor de gebruiker nu door de verschillende gebouwen heen kan navigeren met tab. Dit verbeterd de Accessibility van de applicatie. Daarnaast had ik nog geen focus styles toegevoegd.
+Voor de cirkels op mijn kaart waren geen links en hadden daarom niet via tab genavigeert worden. Dit heb ik veranderd waardoor de gebruiker nu door de verschillende gebouwen heen kan navigeren met tab. Dit verbeterd de Accessibility van de applicatie. Daarnaast heb ik nog focus styles toegevoegd.
 
 ## To do
 

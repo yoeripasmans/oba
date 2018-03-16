@@ -55,23 +55,23 @@ module.exports = {
 			},
 		]
 	},
-	devtool: 'inline-source-map',
+	// devtool: 'inline-source-map',
 	plugins: [
 		new ExtractTextPlugin({
 			filename: 'bundle.css',
 			allChunks: true,
 		}),
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	minimize: true,
-		// 	comments: false,
-		// 	sourceMap: true,
-		// 	compress: {
-		// 		unused: true,
-		// 		dead_code: true,
-		// 		warnings: false,
-		// 		screw_ie8: true,
-		// 	}
-		// }),
+		new webpack.optimize.UglifyJsPlugin({
+			minimize: true,
+			comments: false,
+			sourceMap: false,
+			compress: {
+				unused: true,
+				dead_code: true,
+				warnings: false,
+				screw_ie8: true,
+			}
+		}),
 	],
 
 	// Automatically reload the page when compilation is done.
