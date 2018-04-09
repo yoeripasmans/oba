@@ -50,7 +50,11 @@ const map = {
 
 					// create a circle for each building
 					const el = document.createElement('a');
+					// const span = document.createElement('span');
+					// el.appendChild(span);
+					// span.textContent = d.buildingLabel.value;
 					el.className = 'marker';
+					el.textContent = d.buildingLabel.value;
 					el.href = "#buildings/" + helpers.getSegment(d.building.value, 3);
 
 					//Change the size of the cricles to the amount of collections
